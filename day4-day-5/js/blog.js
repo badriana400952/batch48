@@ -25,37 +25,60 @@ function tambahBlog(event) {
     let typeScript = document.getElementById("typeScript").checked ? typeScriptic : "";
     let image = document.getElementById("image").files;
 
+    //mencari value kalkulasi
     let x = new Date(start)
     let y = new Date(endd)
     let tanggalSekarang = x.getTime();
     let tanggalDurasi = y.getTime();
-    let jarak = tanggalDurasi - tanggalSekarang ;
-    // let durasi = Math.floor(jarak / (1000 * 60 * 60 * 24 * 30))
+    let jarak = tanggalDurasi - tanggalSekarang;
 
+    // mengubah format dari imput kalender
+    const listBulan = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    // tanggal
+    let dateTimestart = x.getDay()
+    let dateTimeend = y.getDay()
+    // Bulan
+    let dateStart = listBulan[x.getMonth()]
+    let dateEnd = listBulan[y.getMonth()]
+    // Tahun
+    let dateTahunStart = x.getFullYear()
+    let dateTahunend = y.getFullYear()
 
-    let detik = Math.floor(jarak / 1000);
-    let menit = Math.floor(detik / 60); 
-    let jam = Math.floor(menit / 60); //82080
-    let hari = Math.floor(jam / 24);
-    let bulan = Math.floor(hari / 30);
+    // menghitung durasi atau mengkalkulasi
+    let detik = Math.floor(jarak / 1000);       // detik
+    let menit = Math.floor(detik / 60);         //detik
+    let jam = Math.floor(menit / 60);           //jam
+    let hari = Math.floor(jam / 24);            //tanggal
+    let bulan = Math.floor(hari / 30);          //bulan
+    let tahun = Math.floor(bulan / 12);         //tahun
 
+  
 
-
-    //upload omage 
+    //upload image ke URL
     image = URL.createObjectURL(image[0]);
     console.log(image);
 
     //buat object
     let blogs = {
         nama,
-        detik,
-        menit,
-        jam,
+
+        // detik,
+        // menit,
+        // jam,
         hari,
         bulan,
+        tahun,
         jarak,
-        tanggalDurasi,
-        tanggalSekarang,
+        // tanggalDurasi,
+        // tanggalSekarang,
+
+        dateTimestart,
+        dateTimeend,
+        dateStart,
+        dateEnd,
+        dateTahunStart,
+        dateTahunend,
+
         start,
         endd,
         deskripsi,
@@ -64,7 +87,6 @@ function tambahBlog(event) {
         iconnext,
         typeScript,
         image,
-        // postWaktu: new Date(),
     };
 
     //array kosong bloger masukan/tambahkan object blogs kedalam
@@ -89,9 +111,9 @@ function viewElement() {
             </div>
             <div class="veiw-desk">
                 <h1>${blogr[index].nama}</h1>
-                <p>Dari ( ${blogr[index].start})  </p>
-                <p>Sampai ( ${blogr[index].endd})  </p>
-                <p>Durasi  ${blogr[index].bulan} Bulan atau ${blogr[index].hari} hari</p>
+                <p>Dari ${blogr[index].dateTimestart} ${blogr[index].dateStart}  ${blogr[index].dateTahunStart}   </p>
+                <p>Sampai ${blogr[index].dateTimeend} ${blogr[index].dateEnd}  ${blogr[index].dateTahunend}   </p>
+                <p>Durasi ${blogr[index].hari} hari atau ${blogr[index].bulan} Bulan, ${blogr[index].tahun} tahun</p>
                 <p>${blogr[index].deskripsi}</p>
             </div>
             <div class="iconss">
@@ -109,9 +131,3 @@ function viewElement() {
     }
 
 }
-// function getFullStart(time) {
-
-//     return time;
-// }
-
-// getFullStart()
