@@ -19,43 +19,84 @@ function tambahBlog(event) {
     let endd = document.getElementById("endDate").value;
     let deskripsi = document.getElementById("deskripsi").value;
     //masukan element berdasarkan id dengan cheklis yang di pilih kedalam variabel
+    // Jika kondisi sebelumnya bernilai true, maka kembalikan nilai icon. 
     let iconnode = document.getElementById("nodeJss").checked ? nodejsic : "";
     let iconreact = document.getElementById("react").checked ? reactic : "";
     let iconnext = document.getElementById("next").checked ? nextic : "";
     let typeScript = document.getElementById("typeScript").checked ? typeScriptic : "";
     let image = document.getElementById("image").files;
+    //mencari value kalkulasi
+
 
     let x = new Date(start)
     let y = new Date(endd)
     let tanggalSekarang = x.getTime();
     let tanggalDurasi = y.getTime();
-    let jarak = tanggalDurasi - tanggalSekarang ;
-    // let durasi = Math.floor(jarak / (1000 * 60 * 60 * 24 * 30))
-
-
-    let detik = Math.floor(jarak / 1000);
-    let menit = Math.floor(detik / 60); 
-    let jam = Math.floor(menit / 60); //82080
-    let hari = Math.floor(jam / 24);
-    let bulan = Math.floor(hari / 30);
+    let jarak = tanggalDurasi - tanggalSekarang;
 
 
 
-    //upload omage 
+    // menghitung durasi atau mengkalkulasi
+    let detik = Math.floor(jarak / 1000);       // detik
+    let menit = Math.floor(detik / 60);         //menit
+    let jam = Math.floor(menit / 60);           //jam
+    let hari = Math.floor(jam / 24);            //tanggal
+    let bulan = Math.floor(hari / 30);          //bulan
+    let tahun = Math.floor(bulan / 12);         //tahun
+
+     const listBulan = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
+    //  menampilkan tanggal awal 
+    let tanggalawal = new Date(start) 
+    let ths = tanggalawal.getDate(); 
+    let tbs = tanggalawal.getMonth(); 
+    let tts = tanggalawal.getFullYear(); 
+    // menampilkan tanggal akhir
+    let tanggalakhir = new Date(endd) 
+    let the = tanggalakhir.getDate(); 
+    let tbe = tanggalakhir.getMonth(); 
+    let tte = tanggalakhir.getFullYear(); 
+    // menggabungkan hari bulan dan tahun
+    let tanggalstart = ths + ' ' + listBulan[tbs] + ' ' + tts;
+    let tanggalend = the + ' ' + listBulan[tbe] + ' ' + tte;
+    console.log(tanggalstart)
+    console.log(tanggalend)
+   
+
+    if(hari >= 30) {
+        hari = "";
+    } else {
+        hari += " hari"
+    }
+
+    if (tahun === 0) {
+        tahun = ""
+    } else {
+        tahun += " tahun"
+    }
+
+    if (bulan === 0) {
+        bulan = ""
+    } else {
+        bulan += " bulan"
+    }
+
+    //upload image ke URL
     image = URL.createObjectURL(image[0]);
     console.log(image);
+
 
     //buat object
     let blogs = {
         nama,
-        detik,
-        menit,
-        jam,
+
         hari,
         bulan,
+        tahun,
         jarak,
-        tanggalDurasi,
-        tanggalSekarang,
+        tanggalstart,
+        tanggalend,
+
         start,
         endd,
         deskripsi,
@@ -64,8 +105,8 @@ function tambahBlog(event) {
         iconnext,
         typeScript,
         image,
-        // postWaktu: new Date(),
     };
+
 
     //array kosong bloger masukan/tambahkan object blogs kedalam
     blogr.push(blogs);
@@ -77,8 +118,7 @@ function tambahBlog(event) {
 }
 
 function viewElement() {
-    //ketika di klik
-    //document berdasarkan id contentView ubah menjadi kosong
+
     document.getElementById("view").innerHTML = "";
 
     for (let index = 0; index < blogr.length; index++) {
@@ -89,9 +129,9 @@ function viewElement() {
             </div>
             <div class="veiw-desk">
                 <h1>${blogr[index].nama}</h1>
-                <p>Dari ( ${blogr[index].start})  </p>
-                <p>Sampai ( ${blogr[index].endd})  </p>
-                <p>Durasi  ${blogr[index].bulan} Bulan atau ${blogr[index].hari} hari</p>
+                 <p>Dari ${blogr[index].tanggalstart} </p>
+                <p>Sampai ${blogr[index].tanggalend}  </p>
+                <p>Durasi ${blogr[index].hari}  ${blogr[index].bulan}, ${blogr[index].tahun}  </p>
                 <p>${blogr[index].deskripsi}</p>
             </div>
             <div class="iconss">
@@ -109,9 +149,3 @@ function viewElement() {
     }
 
 }
-// function getFullStart(time) {
-
-//     return time;
-// }
-
-// getFullStart()

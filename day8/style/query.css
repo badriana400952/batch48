@@ -1,0 +1,421 @@
+
+
+@media screen and (min-width: 240px) and (max-width: 480px) {
+
+	body {
+        margin: 0;
+        padding: 0;
+	}
+    /* .nav fromGrup{
+		kontak-Container muncul
+        background-color: #FE4E30;
+    } */
+	.container {
+		margin-left: 20px;
+	}
+
+	.container img {
+		width: 60px;
+        height: 50px;
+	}
+
+	.link-button ul {
+		display: none;
+	}
+
+	.list ul,
+	.list a {
+		display: none;
+		font-size: 35px;
+	}
+
+	.list {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.menu-bar {
+		display: flex;
+		margin: 20px;
+		margin-right: 40px;
+		cursor: pointer;
+		font-size: 40px;
+		background-color: transparent;
+		border: none;
+	}
+    .menu-bar .fa-solid{
+        color: var(--putih-color);
+    }
+	.card {
+        justify-content: center;
+		display: block;
+	}
+
+	.card_satu {
+		width: 900px;
+	}
+
+	.card_satu h1 {
+		font-size: 35px;
+		font-weight: bold;
+		margin-bottom: 8px;
+	}
+
+	.card_satu p {
+		font-size: 25px;
+		font-weight: 500;
+		text-align: justify;
+	}
+
+	.card_satu button {
+		font-size: 25px;
+		background: black;
+		color: white;
+		padding: 8px 40px;
+		border-radius: 13px;
+		margin-top: 25px;
+		margin-bottom: 10px;
+	}
+
+	.icons a {
+		color: var(--putih-color);
+		font-size: 30px;
+		padding: 5px;
+	}
+
+	.card_satu h3 a {
+		text-decoration: none;
+		color: black;
+		font-size: 35px;
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.card_dua {
+		width: 92%;
+		margin: auto;
+        padding-bottom: 10px;
+
+	}
+
+	.child_card_dua {
+		margin-bottom: 20px;
+		width: 900px;
+        background-color: var(--hitam-color);
+		box-shadow: 0px 0px 12px -6px black;
+		border-radius: 10px;
+	}
+
+	.child_card_dua img {
+		width: 900px;
+        object-fit: cover;
+		height: 800px;
+		border-radius: 10px 10px 0 0;
+
+	}
+
+	.child_card_dua h2 {
+		font-size: 40px;
+		text-align: center;
+		font-weight: bold;
+		margin-top: 10px;
+		font-family: 'Poppins', sans-serif;
+
+	}
+
+	.child_card_dua p {
+		font-size: 35px;
+		text-align: center;
+		padding-bottom: 10px;
+	}
+
+
+	.sectionDua {
+		width: 1000px;
+		display: block;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.sectionCard1 {
+		width: 100%;
+	}
+
+	.card1 {
+		width: 85%;
+
+	}
+
+	.card1 img {
+		display: flex;
+		width: 900px;
+		height: 700px;
+		margin: 10px auto;
+	}
+
+	.card1 h2 {
+		font-size: 40px;
+	}
+
+	.card1 p {
+		font-size: 30px;
+	}
+
+
+	.cardContent h2 {
+		font-size: 40px;
+		font-weight: 200;
+		margin-bottom: 10px;
+	}
+
+	.cardContent p {
+		font-size: 30px;
+		text-align: justify;
+	}
+
+	.link-button ul .aktif {
+		background-color: #FE4E30;
+	}
+
+
+	/* blog */
+	.fromGrup {
+		/* background-color: #FE4E30; */
+		width: 90%;
+		line-height: 30px;
+		margin: 20px auto;
+		display: flex;
+		justify-content: center;
+	}
+
+	.fromBlog {
+		width: 1000px;
+		/* background-color: #af3208; */
+	}
+
+	.fromInput .nama label {
+		font-size: 35px;
+		padding: 10px;
+	}
+
+
+	.fromInput .nama input {
+		padding: 10px;
+		width: 700px;
+		font-size: 35px;
+		border-radius: 15px;
+		border: 1px solid rgba(187, 187, 187, 0.856);
+		font-family: 'Poppins', sans-serif;
+
+	}
+
+
+
+	.flext {
+		display: flex;
+        justify-content: space-between;
+		margin-top: 40px;
+        padding: 5px;
+	}
+
+	.flext-nama {
+
+		/* background-color: #d1cecd; */
+		align-items: center;
+	}
+
+	.flext .flext-nama label {
+		font-size: 35px;
+        width: 70%;
+	}
+
+	.fromInput .flext .flext-nama input {
+		padding: 20px;
+		width: 430px;
+		font-size: 30px;
+		margin-top: 20px;
+		/* background-color: aqua; */
+		border-radius: 15px;
+		border: 1px solid rgba(187, 187, 187, 0.856);
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.fromInput .des {
+		margin-top: 20px;
+	}
+
+	.fromInput .des textarea {
+		padding: 10px;
+		width: 960px;
+		height: 300px;
+		font-size: 35px;
+		margin-bottom: 30px;
+		border-radius: 15px;
+		border: 1px solid rgba(187, 187, 187, 0.856);
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.check {
+		margin-bottom: 40px;
+	}
+
+	.check label {
+		font-size: 35px;
+		line-height: 60px;
+	}
+
+	.checkGrup .checkGrup {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.checkGrup .box {
+		margin-right: 40px;
+		font-size: 35px;
+	}
+
+	.box input[type=checkbox] {
+		transform: scale(1.8);
+		margin: 20px;
+	}
+
+	.fromInput .button {
+		padding: 15px 60px;
+		font-size: 35px;
+		margin-top: 10px;
+		border: none;
+		background-color: #FE4E30;
+		color: white;
+		border-radius: 8px;
+	}
+
+	.view {
+		width: 1200px;
+	}
+
+	.view-grup {
+		width: 500px;
+		padding: 10px;
+		border: 2px solid rgb(223, 223, 222);
+	}
+
+	.view-img img {
+		width: 500px;
+        object-fit: cover;
+		height: 500px;
+	}
+
+	.veiw-desk {
+		width: 500px;
+	}
+
+	.veiw-desk h1{
+        line-height: 60px;
+		font-size: 40px;
+	}
+
+	.veiw-desk p {
+		font-size: 35px;
+		line-height: 40px;
+		font-weight: 300;
+		text-align: justify;
+	}
+
+	.buttonGrup {
+		margin-top: 40px;
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
+	.buttonGrup button a {
+		text-decoration: none;
+		color: white;
+		font-size: 35px;
+	}
+
+	.buttonGrup button {
+		padding: 10px 45px;
+		border: none;
+		background-color: black;
+		color: white;
+		font-size: 35px;
+		border-radius: 5px;
+	}
+
+	.iconss {
+		margin-top: 30px;
+		width: 500px;
+	}
+
+	.iconss .fa-brands {
+		font-size: 35px;
+		margin: 20px 20px;
+		transform: scale(1.5);
+	}
+
+	.kontak-Container {
+		width: 1100px;
+		margin: 40px auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.kontak-Container form {
+		margin-top: 20px;
+		width: 80%;
+	}
+
+	.formControl {
+		display: flex;
+		flex-direction: column;
+
+	}
+
+	.formControl label {
+		padding: 10px 0;
+		font-size: 35px;
+		line-height: 60px;
+	}
+
+	.formControl .form-control,
+	.formControl .form-select {
+		padding: 10px;
+		border-radius: 10px;
+		border: 1px solid gainsboro;
+		font-size: 35px;
+	}
+
+	.form-floating {
+		margin-top: 20px;
+	}
+
+	.form-floating .text-control {
+		width: 99%;
+		height: 200px;
+		border: 1px solid gainsboro;
+		font-size: 35px;
+		margin-bottom: 20px;
+	}
+
+	.form-floating-button {
+		padding: 7px 20px;
+		border: 1px solid gainsboro;
+		border-radius: 10px;
+		margin-top: 5px;
+		font-size: 35px;
+		color: white;
+		background-color: #FE4E30;
+	}
+}
+
+@media screen and (min-width: 950px) {
+
+
+
+	.link-button ul,
+	.menu-bar {
+		display: none;
+	}
+
+}
