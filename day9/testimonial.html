@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/query.css">
+
+	
+	<title>Badriana</title>
+</head>
+
+<body>
+	<nav class="nav">
+		<div class="container">
+			<img src="https://dumbways.id/assets/images/brandwhite.png" />
+			<div class="list">
+				<ul>
+					<li><a href="index.html">My Project</a></li>
+					<li><a href="blog.html">Blog</a></li>
+                    <li><a href="testimonial.html" >Testimonial</a></li>
+				</ul>
+				<div class="darkmode">
+					<a href="konta.html">Contact</a>
+					<img src="assets/malam.png" class="modeDark"/>
+				</div>
+				<button class="menu-bar" onclick="toggle()">
+					<i class="fa-solid fa-bars "></i>
+				</button>
+			</div>
+		</div>
+		<div class="link-button">
+			<ul id="muncul">
+				<li><a href="index.html">My Project</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="konta.html">Contact</a></li>
+				<li class="aktif"><a href="testimonial.html">Testimonial</a></li>
+			</ul>
+
+		</div>
+	</nav>
+    <section class="testimonial">
+        <h1>Testimonials</h1>
+		<div class="retting-testiimonial">
+			<button class="ratings" onclick="allTestimonial()">All</button>
+			<button class="ratings" onclick="filterData(1)">1  <i class="fa-solid fa-star"></i></button>
+			<button class="ratings" onclick="filterData(2)">2  <i class="fa-solid fa-star"></i></button>
+			<button class="ratings" onclick="filterData(3)">3  <i class="fa-solid fa-star"></i></button>
+			<button class="ratings" onclick="filterData(4)">4  <i class="fa-solid fa-star"></i></button>
+			<button class="ratings" onclick="filterData(5)">5  <i class="fa-solid fa-star"></i></button>
+			<div class="searching">
+			<input type="text" class="form-control" id="search" placeholder="Cari User">
+			<button class="cari" onclick="cari()" type="button"><i class="fa-solid fa-magnifying-glass cari-btn"></i></button>
+		</div>
+		</div>
+        <div class="boxTesti" id="boxTesti">
+            <div class="cardTesti">
+                <img alt="p" src="https://images.unsplash.com/photo-1685239218538-11d65c8baaa1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80"/>
+                <h5>slebew</h5>
+                <p>Lorem, ipsum </p>
+            </div>
+            <div class="cardTesti">
+                <img alt="p" src="https://images.unsplash.com/photo-1685239218538-11d65c8baaa1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80"/>
+                <h5>slebew</h5>
+                <p>Lorem, ipsum </p>
+            </div>
+            <div class="cardTesti">
+                <img alt="p" src="https://images.unsplash.com/photo-1685239218538-11d65c8baaa1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80"/>
+                <h5>slebew</h5>
+                <p>Lorem, ipsum </p>
+            </div>
+        </div>
+    </section>
+
+	<script src="js/kontak.js"></script>
+	<script src="js/bars.js"></script>
+	<script src="js/ajaxData.js"></script>
+	<!-- <script src="js/teatimonial.js"></script> -->
+</body>
+
+</html>
