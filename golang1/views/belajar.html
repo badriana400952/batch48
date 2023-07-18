@@ -1,0 +1,234 @@
+// package main
+
+// import (
+// 	"fmt"
+// )
+
+// func main() {
+// 	// oprasi Matematika + - * /
+// 	var a = 10
+// 	var b = 10
+// 	var c = a + b
+// 	fmt.Println(c)
+
+// 	var resultKurang = 20 * 10
+// 	fmt.Println(resultKurang)
+
+// 	var resultTambah = 10 + 20
+// 	fmt.Println(resultTambah)
+
+// 	// oprasi perbandingan > < => =< ==
+// 	var name1 = "badri"
+// 	var name2 = "badri"
+// 	var hasil4 = name1 == name2
+// 	fmt.Println(hasil4, "hasil 4")
+
+// 	var name3 = "badri"
+// 	var name4 = "badriana"
+// 	var hasil5 = name3 == name4
+// 	fmt.Println(hasil5, "hasil 5")
+
+// 	var name6 = 5
+// 	var name7 = 8
+// 	var result8 = name6 < name7
+// 	fmt.Println(result8, "result 8")
+
+// 	// oprasi boolean && || !
+
+// 	// && jika nilai 1 true, 2 true = true
+// 	// && jika nilai 1 true, 2 false = false
+// 	// && jika nilai 1 false, 2 false = false
+// 	var nilaiUlangan = 80
+// 	var nilaiUjian = 72
+// 	var hasilUlangan = nilaiUlangan >= 80
+// 	var hasilUjian = nilaiUjian >= 80
+
+// 	var hasil = hasilUlangan && hasilUjian
+// 	fmt.Println(hasil, "nilai kelulusan lulus")
+
+// 	// || jika nilai 1 true, 2 true = true
+// 	// || jika nilai 1 true, 2 false = true
+// 	// || jika nilai 1 false, 2 false = false
+// 	var nilaiUlangan2 = 82
+// 	var nilaiUjian2 = 80
+// 	var hasilUlangan2 = nilaiUlangan2 >= 80
+// 	var hasilUjian2 = nilaiUjian2 >= 80
+
+// 	var hasil2 = hasilUlangan2 || hasilUjian2
+// 	fmt.Println(hasil2, "nilai kelulusan lulus")
+
+// 	// array manual
+// 	var names [3]string
+
+// 	names[0] = "bad"
+// 	names[1] = "badri"
+// 	names[2] = "badriana"
+// 	var bad = names[0]
+// 	fmt.Println(bad, "=> array")
+// 	fmt.Println(names[1], "=> array")
+// 	fmt.Println(names[2], "=> array")
+
+// 	// array
+// 	var value = [3]int{
+// 		10,
+// 		30,
+// 		20,
+// 	}
+// 	fmt.Println(value, "=> array bukan manual")
+// 	var values = [10]string{
+// 		"bad",
+// 		"rian",
+// 		"na",
+// 	}
+// 	fmt.Println(values, "=> array bukan manual")
+// 	fmt.Println(values[0])
+// 	fmt.Println(values[1])
+// 	fmt.Println(values[2])
+
+// 	fmt.Println(len(values), "=> length/panjang array")
+
+// 	// map
+// 	// deklarasi panjang
+// 	// var person map[string]string = map[string]string{
+// 	// }
+// 	var person = map[string]string{
+// 		"nama":    "badriana",
+// 		"alamat":  "bungur copong",
+// 		"kelamin": "Laki laki",
+// 	}
+
+// 	fmt.Println(person, "map")
+
+// 	fmt.Println(person["nama"], "map")
+// 	fmt.Println(person["alamat"], "map")
+// 	fmt.Println(person["kelamin"], "map")
+
+// 	// tambah data map
+// 	person["jurusan"] = "teknik informatika"
+
+// 	fmt.Println(person["jurusan"], "map baru")
+
+// 	// mengetahui panjang data map
+// 	fmt.Println(len(person), "ini person")
+
+// 	// if expresi
+// 	var hallo = "dede"
+// 	if hallo == "badriana" {
+// 		fmt.Println("hallo badriana", " ini if")
+// 	} else {
+// 		fmt.Println("kenalan donk")
+// 	}
+
+// 	var umur = 100
+// 	if umur <= 25 {
+// 		fmt.Println("anda masih remaja")
+// 	} else if umur <= 40 {
+// 		fmt.Println("anda belom mendapatkan discount")
+// 	} else {
+// 		fmt.Println("selamat anda mendapatkan discount")
+// 	}
+
+// 	var angka = 20
+
+// 	if angka%2 == 0 {
+// 		fmt.Println("ini bulangan genap")
+// 	} else {
+// 		fmt.Println("ini bulangan ganjil")
+
+// 	}
+
+// 	var nombor = -1
+// 	if nombor > 0 {
+// 		fmt.Println("ini bilangan positif")
+// 	} else if nombor < 0 {
+// 		fmt.Println("ini bilangan negativ")
+// 	} else {
+// 		fmt.Println("ini nol")
+// 	}
+// 	var masukanNama = "namaku badriana"
+// 	if masukanNama == masukanNama {
+// 		fmt.Println(masukanNama)
+// 	}
+
+// 	// for pengulangan
+// 	var count = 0
+// 	for count < 10 {
+// 		fmt.Println("ini count", count)
+// 		count++
+// 	}
+
+// 	for i := 0; i < 10; i++ {
+// 		fmt.Println("counter", i)
+// 	}
+
+// 	// e := echo.New()
+// 	// e.GET("/", func(c echo.Context) error {
+// 	// 	return c.String(http.StatusOK, "hallo")
+// 	// })
+// 	// e.Start(":1323")
+
+// 	// function
+// 	dataB()
+// 	dataB()
+// 	dataB()
+// 	// function parameter
+// 	namaFunc("dede", "boob")
+// 	namaFunc("nur", "Izzati")
+// 	namaFunc("bayu", "anggara")
+// 	// function return
+// 	fmt.Println(namaFuncReturn("badri"))
+// 	xs := namaFuncReturn("")
+// 	fmt.Println(xs)
+// 	// function multiple return
+// 	namaPendek, namaPanjang := nameName()
+// 	fmt.Println(namaPendek, namaPanjang)
+// 	namaDdede, _, palingGanteng := nameNameName()
+// 	fmt.Println(namaDdede, palingGanteng)
+// 	// function named return
+// 	awal, tengah, akhir := namedReturnValue()
+// 	fmt.Println(awal, tengah, akhir)
+
+// }
+
+// // function
+// func dataB() {
+
+// 	for i := 0; i < 3; i++ {
+// 		fmt.Println("Hallo bad")
+// 	}
+// }
+
+// // function parameter
+// func namaFunc(aran string, aranPanjang string) {
+// 	var w = aran
+// 	fmt.Println("hallo "+w, aranPanjang)
+// }
+
+// // function return
+// func namaFuncReturn(name string) string {
+// 	if name == "" {
+// 		return "hallo bro"
+// 	} else {
+// 		return "hay badri"
+// 	}
+// }
+
+// // function return multiple
+// func nameName() (string, string) {
+// 	return "dede", "badriana ganteng"
+// }
+
+// // misal jika hanya ingin memakai 1 atau dua parameter saja
+// func nameNameName() (string, string, string) {
+// 	return "dede", "badriana", "paling ganteng"
+// }
+
+// // function named return
+// // func namedReturnValue() (awal string, tengah string, akrir string) {
+// func namedReturnValue() (awal, tengah, akrir string) {
+// 	awal = "nur"
+// 	tengah = "izzati"
+// 	akrir = "islamiyah"
+// 	// return awal, tengah, akrir
+// 	return
+// }
