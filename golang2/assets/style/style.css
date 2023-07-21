@@ -1,0 +1,102 @@
+body{
+    background-color: var(--hitam-color) !important;
+}
+.hover:hover{
+    transform: scale(1.03);
+    transition: 1.5s;
+
+    justify-content: space-between;
+}
+
+.barss{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* blog */
+.blog-card-view{
+    width: 350px;
+    object-fit: cover !important;
+}
+.des-text .par{
+    font-size: 12px;
+    line-height: 15px;
+}
+.wpp{
+    width: 900px;
+    flex-wrap: wrap;
+}
+.searching{
+    display: flex;
+    justify-content: center;
+}
+.searching input{
+    width: 400px;
+}
+.searching .cari{
+    background-color: transparent;
+}
+
+/* testimonial */
+.card-testimonial{
+    border: none;
+    object-fit: cover !important;
+    width: 400px !important;
+}
+.card-testimonial img{
+    object-fit: cover !important;
+    width: 95%;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 250px;
+}
+.cardP{
+    text-align: right;
+}
+
+.cardss-parent{
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+
+:root{
+
+
+	/* --hitam-color: #080808f3 !important;
+	--putih-color: rgb(211, 211, 211) !important; */
+
+}  
+
+input:focus, textarea:focus {
+	outline: none;
+	border: 1px solid white;
+
+  }
+  label{
+	/* background-color: transparent; */
+	color: var(--putih-color);
+  }
+
+.dark{
+	--hitam-color: #080808f3;
+	--putih-color: rgb(211, 211, 211);
+}
+.gelap{
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gelap img{
+    padding-top: 15px;
+    width: 100%;
+}

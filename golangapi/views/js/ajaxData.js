@@ -5,7 +5,7 @@ const promises = new Promise((ada, gada) => {
     // open, onload, onerror, send
     xhr.open("GET", "http://localhost:1323/testimonial", true)
     xhr.onload = () => {
-        if(xhr.status === 200) {
+        if (xhr.status === 200) {
             ada(JSON.parse(xhr.response))
         } else if (xhr.status >= 400) {
             gada("Error loading data")
@@ -23,7 +23,7 @@ const datas = async (rating) => {
     try {
         const res = await promises
         dataTestimonials = res
-        console.log( res)
+        console.log(res)
         allTestimonial()
     } catch (error) {
         console.error("error hehe")
@@ -35,12 +35,17 @@ function allTestimonial() {
     // alert("ok")
     let testimonualHtml = ""
     dataTestimonials.forEach((d) => {
-        testimonualHtml += `<div class="cardTesti">
-                 <img alt="p" src="${d.img}"/>
-                 <h5>${d.Content}</h5>
-                 <p>${d.Nama}  <i class="fa-solid fa-star"></i> ${d.Rating} </p>
-             </div>
-         `
+        testimonualHtml += ` 
+            <div class="col mt-3 cardss-parent" >
+                <div class="card card-testimonial shadow border-light " >
+                    <img src="${d.img}" class="card-img-top" alt="ww" />
+                    <div class="card-body">
+                        <h5 class="mb-4">${d.quote}</h5>
+                        <p class="cardP">${d.user} <i class="fa-solid fa-star"></i> ${d.rating} </p>
+                    </div>
+                </div>
+            </div>
+        `
     })
     document.getElementById("boxTesti").innerHTML = testimonualHtml
 
@@ -56,12 +61,17 @@ function filterData(rating) {
     })
 
     datafilter.forEach((d) => {
-        testimonialshtmlfilter += `<div class="cardTesti">
-        <img alt="p" src="${d.img}"/>
-        <h5>${d.Content}</h5>
-        <p>${d.Nama}  <i class="fa-solid fa-star"></i> ${d.Rating} </p>
-    </div>
-`
+        testimonialshtmlfilter += ` 
+            <div class="col mt-3 cardss-parent" >
+                <div class="card card-testimonial shadow border-light " >
+                    <img src="${d.images}" class="card-img-top" alt="ww" />
+                    <div class="card-body">
+                        <h5 class="mb-4">${d.nama}</h5>
+                        <p class="cardP">${d.content} <i class="fa-solid fa-star"></i> ${d.rating} </p>
+                    </div>
+                </div>
+            </div>
+        `
     })
 
 
@@ -80,14 +90,19 @@ function cari() {
         return d.user.toLowerCase().includes(search);
     })
     dataCari.forEach((d) => {
-        testimonialshtmlcari += `<div class="cardTesti">
-        <img alt="p" src="${d.img}"/>
-        <h5>${d.Content}</h5>
-        <p>${d.Nama}  <i class="fa-solid fa-star"></i> ${d.Rating} </p>
-    </div>
-`
+        testimonialshtmlcari += ` 
+            <div class="col mt-3 cardss-parent" >
+                <div class="card card-testimonial shadow border-light " >
+                    <img src="${d.img}" class="card-img-top" alt="ww" />
+                    <div class="card-body">
+                        <h5 class="mb-4">${d.quote}</h5>
+                        <p class="cardP">${d.user} <i class="fa-solid fa-star"></i> ${d.rating} </p>
+                    </div>
+                </div>
+            </div>
+        `
     })
-   
+
     document.getElementById("boxTesti").innerHTML = testimonialshtmlcari
 
 }

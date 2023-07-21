@@ -11,7 +11,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--  -->
     <!-- css -->
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="/views/style/style.css">
     <!--  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -27,23 +27,21 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">My Project</a>
+                        <a class="nav-link active" aria-current="page" href="/">My Project</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
+                        <a class="nav-link" href="blog">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="testimonial.html">Testimonial</a>
+                        <a class="nav-link" href="testimonial">Testimonial</a>
                     </li>
                     
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="kontak.html">Contact</a>
+                        <a class="nav-link" href="kontak">Contact</a>
                     </li>
-                    <li class="navbar-nav gelap">
-                        <img src="assets/malam.png"  class="modeDark"/>
-                    </li>
+              
                 </ul>
             </div>
         </div>
@@ -51,42 +49,43 @@
     <div class="container">
         <div class=" row my-5 mx-2  p-3 shadow">
             <div class="col ">
-                <form onsubmit="tambahBlog(event)" class="mb-4">
+                <!-- <form onsubmit="tambahBlog(event)" class="mb-4"> -->
+                <form class="mb-4" action="/addblog" method="POST">
                     <div class="mb-3">
                         <label for="nama" class="form-label">Name Project</label>
-                        <input type="text" class="form-control" id="nama" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" id="nama" aria-describedby="emailHelp" name="nama">
                     </div>
                     <div>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="start" class="form-label">Start Date</label>
-                                    <input type="date" class="form-control" id="start">
+                                    <input type="date" class="form-control" id="start" name="start">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="endDate" class="form-label">End Date</label>
-                                    <input type="date" class="form-control" id="endDate">
+                                    <input type="date" class="form-control" id="endDate" name="endDate">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="deskripsi" rows="3"></textarea>
+                        <textarea class="form-control" id="deskripsi" rows="3" name="deskripsi"></textarea>
                     </div>
                     <div class="mb-3">
                         <div class="row">
                             <div class="col">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="nodeJss">
+                                    <input class="form-check-input" type="checkbox" value="yes" id="nodeJss" name="nodeJss">
                                     <label class="form-check-label" for="nodeJss">
                                         Node js
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="react">
+                                    <input class="form-check-input" type="checkbox" value="yes" id="react" name="react">
                                     <label class="form-check-label" for="react">
                                         React js
                                     </label>
@@ -94,13 +93,13 @@
                             </div>
                             <div class="col">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="next">
+                                    <input class="form-check-input" type="checkbox" value="yes" id="next" name="next">
                                     <label class="form-check-label" for="next">
                                         Next Js
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="typeScript">
+                                    <input class="form-check-input" type="checkbox" value="yes" id="typeScript" name="typeScript">
                                     <label class="form-check-label" for="typeScript">
                                         Type Script
                                     </label>
@@ -116,39 +115,12 @@
                 </form>
             </div>
         </div>
-        <div class="row" id="view">
-            <div class="col col-md-4 sm-12 d-flex justify-content-around mt-3 wpp " >
-                <div class="card my-4 border-none shadow card-testimonial">
-                    <img src="assets/b.jpg" class="card-img-top" alt="aa">
-                    <div class="card-body des-text">
-                        <h5 class="text-dark-emphasis ">Badriana</h5>
-                        <p class="card-text par">Dari - </p>
-                        <p class="card-text par">Sampai - </p>
-                        <p class="card-text par">Durasi - </p>
-                        <p class="card-text par">Some quick example text to build on the card title and make up the bulk
-                            of the card's content.</p>
-                        <div class="iconss">
-                            <i class="fa-brands fa-node fs-3"></i>
-                            <i class="fa-brands fa-react fs-3"></i>
-                            <i class="fa-brands fa-square-js fs-3"></i>
-                            <i class="fa-brands fa-vuejs fs-3"></i>
-                        </div>
-                        <div class="mt-4 d-flex justify-content-center gap-3">
-                            <button class="btn btn-dark"><a class="text-decoration-none text-light px-5 "
-                                    href="detail.html">Detail</a> </button>
-                            <button class="btn btn-dark text-light px-5">Delete</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous">
     </script>
-    <script src="js/blog.js"></script>
-    <script src="js/kontak.js"></script>
+  
 
 </body>
 
