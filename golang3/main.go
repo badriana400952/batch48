@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	connection "golang1/conection"
+	connection "golang3/conection"
 	"net/http"
 	"strconv"
 	"text/template"
@@ -36,7 +36,7 @@ type Testimonial struct {
 var dataBlog = []Blog{}
 
 func main() {
-	connection.DatabaseConnect()
+	connection.DatabaseConnecttion()
 	e := echo.New()
 	e.Static("/assets", "assets")
 

@@ -10,7 +10,7 @@ import (
 
 var Conn *pgx.Conn
 
-func DatabaseConnect() {
+func DatabaseConnecttion() {
 	databaseURL := "postgres://postgres:123456789@localhost:5432/dataBlog"
 
 	var err error
