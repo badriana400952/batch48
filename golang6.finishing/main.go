@@ -37,6 +37,9 @@ func main() {
 	e.POST("/register", route.RegisterMethod)
 	e.POST("/loginster", route.LoginMethod)
 	e.POST("/logout", route.Logout)
+	// Prifile
+	e.GET("/profil", route.Profil)
+
 	// daftarkan HandlerMiddleware ke global
 	e.Use(HandlerMiddleware)
 	e.GET("/testimonialApi", api.TestimonialApi)

@@ -60,16 +60,20 @@ var userData = SessionData{}
 
 func Home(c echo.Context) error {
 
-	dataUser, _ := connection.Conn.Query(context.Background(), "SELECT pekerjaan, tahun FROM tb_user")
-	var result []Users
-	for dataUser.Next() {
-		var each = Users{}
-		errs := dataUser.Scan(&each.Pekerjaan, &each.Tahun)
+	data, _ := connection.Conn.Query(context.Background(), "SELECT coba5.id, tb_user.name, coba5.nama, coba5.stardate, coba5.enddate, coba5.durasi, coba5.deskripsi, coba5.nodejs, coba5.react, coba5.nextjs, coba5.typescript, coba5.img FROM coba5 LEFT JOIN tb_user ON coba5.authdor_id = tb_user.id ORDER BY coba5.id DESC")
+
+	var result []Blog
+	for data.Next() {
+		var each = Blog{}
+		var authdorSementara sql.NullString
+
+		errs := data.Scan(&each.Id, &authdorSementara, &each.Nama, &each.PostDate, &each.EndDate, &each.Durasi, &each.Deskripsi, &each.NodeJs, &each.ReactJS, &each.NextJs, &each.TypeScript, &each.Img)
 
 		if errs != nil {
 			return c.JSON(http.StatusInternalServerError, errs.Error())
 		}
 
+		each.Authdor = authdorSementara.String
 		result = append(result, each)
 	}
 
@@ -86,7 +90,7 @@ func Home(c echo.Context) error {
 		"FlashStatus":  sess.Values["status"],
 		"FlashMessage": sess.Values["message"],
 		"DataSession":  userData,
-		"User":         result,
+		"Blogs":        result,
 	}
 
 	delete(sess.Values, "message")
@@ -113,7 +117,7 @@ func AddFormBlog(c echo.Context) error {
 
 func Bloger(c echo.Context) error {
 
-	data, _ := connection.Conn.Query(context.Background(), "SELECT coba5.id, tb_user.name, coba5.nama, coba5.stardate, coba5.enddate, coba5.durasi, coba5.deskripsi, coba5.nodejs, coba5.react, coba5.nextjs, coba5.typescript, coba5.img FROM coba5 LEFT JOIN tb_user ON coba5.authdor_id = tb_user.id")
+	data, _ := connection.Conn.Query(context.Background(), "SELECT coba5.id, tb_user.name, coba5.nama, coba5.stardate, coba5.enddate, coba5.durasi, coba5.deskripsi, coba5.nodejs, coba5.react, coba5.nextjs, coba5.typescript, coba5.img FROM coba5 LEFT JOIN tb_user ON coba5.authdor_id = tb_user.id ORDER BY coba5.id DESC")
 
 	var result []Blog
 	for data.Next() {
@@ -404,6 +408,30 @@ func Logout(c echo.Context) error {
 	sess.Save(c.Request(), c.Response())
 
 	return c.Redirect(http.StatusMovedPermanently, "/")
+}
+
+func Profil(c echo.Context) error {
+	id, _ := strconv.Atoi(c.Param("id"))
+	fmt.Println(id)
+	sess, _ := session.Get("session", c)
+
+	if sess.Values["isLogin"] != true {
+		userData.IsLogin = false
+	} else {
+		userData.IsLogin = sess.Values["isLogin"].(bool)
+		userData.Name = sess.Values["name"].(string)
+	}
+
+	datas := map[string]interface{}{
+		"Id":          id,
+		"DataSession": userData,
+	}
+	tmpl, err := template.ParseFiles("views/profile.html")
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{
+			"massage": err.Error()})
+	}
+	return tmpl.Execute(c.Response(), datas)
 }
 
 func redirectWithMessage(c echo.Context, message string, status bool, path string) error {

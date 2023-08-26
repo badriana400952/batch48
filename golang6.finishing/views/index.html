@@ -45,24 +45,25 @@
                         <a class="nav-link" href="kontak">Contact</a>
                     </li>
                     {{if .DataSession.IsLogin}}
-                        <li class="nav-item mx-3 my-2">
-                            <a href="#" style="text-decoration: none; color: black"><i class="fa-solid fa-user"></i>
-                                {{.DataSession.Name}}</a>
-                        </li>
-                        <li class="nav-item mx-3 my-1 ">
-                            <form id="myform" action="/logout" method="POST"></form>
-                            <button onclick="document.getElementById('myform').submit()" class="btn-auth bg-dark text-light border-dark rounded-2 px-3 py-1 ">
-                                <i class="fa-solid fa-right-from-bracket text-light"></i> Logout
-                            </button>
-                        </li>
-                        {{else}}
-                        <li class="nav-item my-2 px-2">
-                            <a href="/regis" class="btn-auth text-decoration-none"> Register</a>
-                        </li>
-                        <li class="nav-item my-2 px-2">
-                            <a href="/login" class="btn-auth text-decoration-none">Login</a>
-                        </li>
-                        {{end}}
+                    <li class="nav-item mx-3 my-2">
+                        <a href="#" style="text-decoration: none; color: black"><i class="fa-solid fa-user"></i>
+                            {{.DataSession.Name}}</a>
+                    </li>
+                    <li class="nav-item mx-3 my-1 ">
+                        <form id="myform" action="/logout" method="POST"></form>
+                        <button onclick="document.getElementById('myform').submit()"
+                            class="btn-auth bg-dark text-light border-dark rounded-2 px-3 py-1 ">
+                            <i class="fa-solid fa-right-from-bracket text-light"></i> Logout
+                        </button>
+                    </li>
+                    {{else}}
+                    <li class="nav-item my-2 px-2">
+                        <a href="/regis" class="btn-auth text-decoration-none"> Register</a>
+                    </li>
+                    <li class="nav-item my-2 px-2">
+                        <a href="/login" class="btn-auth text-decoration-none">Login</a>
+                    </li>
+                    {{end}}
                 </ul>
             </div>
         </div>
@@ -123,28 +124,96 @@
                         <h5 class="card-title">{{.DataSession.Name}}</a></h5>
                         {{end}}
                         <div class="row">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                        {{ range $index, $user := .User}}
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- {{ range $index, $user := .User}}
 
                               <tr class="d-flex justify-content-between">
-                                <td scope="row" >{{$user.Pekerjaan}}</td>
+                              <td scope="row" >{{$user.Pekerjaan}}</td>
                                 <td >{{$user.Tahun}}</td>
+                                <td>Web Developer</td>
+                                <td>2020</td>
                               </tr>
-                        {{end}}
-                              
-                            </tbody>
-                        </table>
-                    </div>
+                        {{end}} -->
+                                    <tr class="d-flex justify-content-between">
+                                        <td>
+                                            <p>Web Developer</p>
+                                            <p>Fullstack Developer</p>
+                                        </td>
+                                        <td>
+                                            <p>2020</p>
+                                            <p>2023</p>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+
+        {{if .DataSession.IsLogin}}
+        <button class="btn btn-info"> <a href="addFormBlog" class="text-decoration-none text-light">Tambah Data</a>
+        </button>
+        {{end}}
+
+        <div class="row">
+            {{ range $index, $blog := .Blogs }}
+            {{if eq $.DataSession.Name $blog.Authdor}}
+
+            <div class="col col-md-4 sm-12 d-flex justify-content-around mt-3 wpp ">
+                <div class="card my-4 border-none shadow card-testimonial">
+                    <img src="/uploads/{{$blog.Img}}" class="card-img-top" alt="aa">
+                    <div class="card-body des-text">
+                        <h5 class="text-dark-emphasis ">
+                            <a href="/detail/{{$blog.Id}}" class="text-decoration-none text-dark">{{$blog.Nama}}</a>
+                        </h5>
+                        <p class="card-text par">{{$blog.PostDate}}</p>
+                        <p class="card-text par">{{$blog.EndDate}}</p>
+                        <p class="card-text par">{{$blog.Durasi}}</p>
+                        <p class="card-text par">{{$blog.Authdor}} | {{$blog.Deskripsi}} </p>
+                        <div class="iconss">
+                            {{if $blog.NodeJs}}
+                            <i class="fa-brands fa-node fs-3"></i>
+                            {{end}}
+                            {{if $blog.ReactJS}}
+                            <i class="fa-brands fa-react fs-3"></i>
+                            {{end}}
+                            {{if $blog.NextJs}}
+                            <i class="fa-brands fa-square-js fs-3"></i>
+                            {{end}}
+                            {{if $blog.TypeScript}}
+                            <i class="fa-brands fa-vuejs fs-3"></i>
+                            {{end}}
+                        </div>
+                        {{if $.DataSession.IsLogin}}
+                        <div class="mt-4 d-flex justify-content-center gap-3">
+                            <button class="btn btn-dark"> <a href="/editBlog/{{$blog.Id}}"
+                                    class="text-decoration-none text-light px-5">Edit</a>
+                            </button>
+                            <form action="/delete-blog/{{$blog.Id}}" method="post" class="bg-dark rounded">
+                                <input type="submit" value="Delete" class="btn text-light" style="width: 140px;" />
+                            </form>
+                        </div>
+                        {{end}}
+
+                    </div>
+                </div>
+            </div>
+            {{end}}
+            {{ end }}
+
+
         </div>
 
     </div>
